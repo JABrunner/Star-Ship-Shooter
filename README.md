@@ -1,2 +1,2 @@
 # Star Ship Shooter
- Project created to learn the basics of pygame (Python), Credit to Tim the Techman for base code
+ Project created to learn the basics of pygame (Python), Credit to Tech with Tim (Tim Ruscica) for base code
