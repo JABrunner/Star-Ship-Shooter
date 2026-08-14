@@ -159,6 +159,10 @@ def collide(obj1, obj2):
     offset_y = obj2.y - obj1.y
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
+def next_wave(level, wave_length):
+    """Compute the next level/wave_length once the current wave is cleared."""
+    return level + 1, wave_length + 5
+
 def main():
     run = True
     FPS = 60
@@ -216,8 +220,7 @@ def main():
                 continue
 
         if len(enemies) == 0:
-            level += 1
-            wave_length += 5
+            level, wave_length = next_wave(level, wave_length)
             for i in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
                 enemies.append(enemy)
@@ -280,4 +283,5 @@ def main_menu():
     pygame.quit()
 
 
-main_menu()
+if __name__ == "__main__":
+    main_menu()
